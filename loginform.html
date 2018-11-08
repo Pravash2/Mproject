@@ -1,0 +1,180 @@
+<?php ?>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="./css/mp.css" />
+    <style>
+    
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-image: url(./Image/login/login.jpg);
+      }
+      form {
+        border: 3px solid #f1f1f1;
+        width: 50%;
+      }
+
+      input[type="text"],
+      input[type="password"] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+      }
+
+      button {
+        background-color: #4caf50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+      }
+
+      button:hover {
+        opacity: 0.8;
+      }
+
+      .cancelbtn {
+        width: auto;
+        padding: 10px 18px;
+        background-color: #f44336;
+      }
+      .register {
+        width: auto;
+        padding: 10px 18px;
+        background-color: orange;
+      }
+
+      .imgcontainer {
+        text-align: center;
+        margin: 10px 0 10px 0;
+      }
+
+      img.avatar {
+        width: 20%;
+        border-radius: 20%;
+      }
+
+      .container {
+        padding: 5px;
+        margin: 10px 0 10px 0;
+        color: aqua;
+      }
+
+      span.psw {
+        float: right;
+        padding-top: 16px;
+      }
+
+      /* Change styles for span and cancel button on extra small screens */
+      @media screen and (max-width: 10px) {
+        span.psw {
+          display: block;
+          float: none;
+        }
+        .cancelbtn {
+          width: 100%;
+          background: transparent;
+        }
+      }
+    </style>
+  </head>
+  <center>
+    <body background="./Image/login/login.jpg">
+      <nav class="navbar">
+          <span class="open-slide">
+            <a href="#" onclick="openSlideMenu()">
+              <svg width="30" height="30">
+                  <path d="M0,5 30,5" stroke="#fff" stroke-width="5"/>
+                  <path d="M0,14 30,14" stroke="#fff" stroke-width="5"/>
+                  <path d="M0,23 30,23" stroke="#fff" stroke-width="5"/>
+              </svg>
+            </a>
+          </span>
+      
+          <ul class="navbar-nav">
+            <li><a href="./home.html">HOME</a></li>
+            <li><a href="./resturant.html">RESTURANTS</a></li>
+            <li><a href="./hotel.html">HOTELS</a></li>
+            <li><a href="./hospital.html">HOSPITALS</a></li>
+            <li><a href="/about.html">ABOUT</a></li>
+            <li><a href="/loginform.html">SIGN IN</a></li>
+          </ul>
+        </nav>
+      
+        <div id="side-menu" class="side-nav">
+          <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
+          <a href="./home.html">HOME</a>
+          <a href="./resturant.html">RESTURANTS</a>
+          <a href="./hotel.html">HOTELS</a>
+          <a href="./hospital.html">HOSPITALS</a>
+          <a href="./about.html">ABOUT</a>
+          <a href="./loginform.html">LOGIN</a>
+        </div>
+      
+      <script>
+        function openSlideMenu() {
+          document.getElementById("side-menu").style.width = "250px";
+          document.getElementById("main").style.marginLeft = "250px";
+        }
+
+        function closeSlideMenu() {
+          document.getElementById("side-menu").style.width = "0";
+          document.getElementById("main").style.marginLeft = "0";
+        }
+      </script>
+
+      <h2>Login Form</h2>
+
+      <form action="/action_page.php">
+        <div class="imgcontainer">
+          <img
+            src="./Image/login/avatar.png"
+            class="avatar"
+            alt="Avatar"
+          />
+        </div>
+
+        <div class="container">
+          <label for="uname"><b>Username</b></label>
+          <input
+            type="text"
+            placeholder="Enter Username"
+            name="uname"
+            required
+          />
+
+          <label for="psw"><b>Password</b></label>
+          <input
+            type="password"
+            placeholder="Enter Password"
+            name="psw"
+            required
+          />
+
+          <button type="submit" onclick="see(this.form)">Login</button>
+          
+          <label>
+            <input type="checkbox" checked="checked" name="remember" /> Remember
+            me
+          </label>
+        </div>
+
+        <div class="container" style="background-color:transparent;">
+          <button type="button" class="cancelbtn"><a href="/home">Back</a></button>
+          <button type="button" class="register">
+            <a href="/register">Register</a>
+          </button>
+          <span class="psw"><a href="#">Forgot password</a></span>  
+          <span class="psw"><a href="/resister">Not Registered?</a></span>
+        </div>
+      </form>
+    </body>
+  </center>
+</html>

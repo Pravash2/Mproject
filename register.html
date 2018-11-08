@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" href="./css/mp.css">
+<script src="./script/jquery-3.3.1.min.js"></script>
+ 
+ 
+<style>
+body {font-family: Arial, Helvetica, sans-serif; background-image: url(./Image/login/login.jpg);}
+form {border: 3px solid #f1f1f1; width:50%;    }
+
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+.register{
+     width: auto;
+    padding: 10px 18px;
+    background-color: orange;
+}
+
+.imgcontainer {
+    text-align: center;
+    margin: 10px 0 10px 0;
+}
+
+img.avatar {
+    width: 20%;
+    border-radius: 20%;
+}
+
+.container {
+    padding: 5px;
+    margin:10px 0 10px 0; 
+    color:aqua;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 10px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+    .cancelbtn {
+       width: 100%;
+       background:transparent; 
+    }
+}
+h2{
+  color:orange 
+}
+
+</style>
+  <script src="./script/angular.min.js"></script>
+  <script src="./script//jquery.min.js"></script>
+ 
+  <script>
+  function validate()
+{
+  var upass = document.frmregister.password.value;
+  if(!isNaN(upass))
+  {
+    alert("Password can't contain only numbers");
+    return false;
+  }
+
+  if(confirm("Do you really want to Submit"))
+  {
+    return true;
+  }
+  return false;
+}
+
+function validatefirstname(fname)
+{    var a=/^[0-9]+$/;
+  if(firstname.value.match(a))
+  {   document.getElementById("errortxt").innerHTML = "firstname must not contain numbers"
+  alert("firstname must not contain numbers");
+    var name = prompt("Enter Valid firstname");
+    document.frmregister.firstname.value = name;
+  }
+}
+function validatelastname(lname)
+{    var a=/^[0-9]+$/;
+  if(lastname.value.match(a))
+  {   document.getElementById("errortxt").innerHTML = "lastname must not contain numbers"
+  alert("lastname must not contain numbers");
+    var name = prompt("Enter Valid lastname");
+    document.frmregister.lastname.value = name;
+  }
+}
+
+
+function validateemail()
+{
+  var email = document.getElementById("email").value;
+  
+  if(
+  (email.indexOf('@') < 2)
+  ||
+  (email.indexOf('@')!=email.lastIndexOf('@'))
+  )
+  {
+    alert("Invalid email");
+  }
+  
+}
+</script>
+
+
+</head>
+<center>
+<body background="regis.jpg">
+    <nav class="navbar">
+    <span class="open-slide">
+      <a href="#" onclick="openSlideMenu()">
+        <svg width="30" height="30">
+            <path d="M0,5 30,5" stroke="#fff" stroke-width="5"/>
+            <path d="M0,14 30,14" stroke="#fff" stroke-width="5"/>
+            <path d="M0,23 30,23" stroke="#fff" stroke-width="5"/>
+        </svg>
+      </a>
+    </span>
+
+    <ul class="navbar-nav">
+      <li><a href="file:///E:/vaishali%20html/index1.html">HOME</a></li>
+      <li><a href="file:///E:/vaishali%20html/loginform.html">LOGIN</a></li>
+      <li><a href="file:///E:/vaishali%20html/about.html">ABOUT US</a></li>
+      <li><a href="#">CONTACT US</a></li>
+    </ul>
+  </nav>
+  <div id="side-menu" class="side-nav">
+    <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
+    <a href="file:///E:/vaishali%20html/index1.html">HOME</a>
+    <a href="file:///E:/vaishali%20html/loginform.html">LOGIN</a>
+    <a href="#">CONTACT US</a>
+    <a href="file:///E:/vaishali%20html/about.html#">ABOUT US</a>
+  </div>
+       <script>
+    function openSlideMenu(){
+      document.getElementById('side-menu').style.width = '250px';
+      document.getElementById('main').style.marginLeft = '250px';
+    }
+
+    function closeSlideMenu(){
+      document.getElementById('side-menu').style.width = '0';
+      document.getElementById('main').style.marginLeft = '0';
+    }
+  </script>
+
+<h2>REGISTER HERE</h2>
+
+<form action="/action_page.php" name="frmregister"
+onsubmit="return validate()" action="register.html">
+
+  <div class="imgcontainer">
+    <img src="./Image/registation/reg.png" alt="Avatar" class="avatar">
+  </div>
+
+  <div class="container">
+    <div ng-app="">
+      <div>
+   <label for="firstname">first name</label>
+  <input class="myclass" required  autofocus autocomplete type="text"  ng-model="s" name="firstname"id="firstname" placeholder="Your firstname"onblur="validatefirstname(this.value)"/>
+  <div ng-bind="s" ></div></p>
+     
+    <label for="lasttname">last name</label>
+  <input  class="myclass" required  autofocus autocomplete type="text" ng-model="v" name="lastname"id="lasttname" placeholder="Your lasttname"onblur="validatelastname(this.value)"/>
+  <div ng-bind="v" id="errortxt"></div>
+
+
+    <p><label for="email">email</label></p>
+   <p> <input  class="myclass" required  autofocus autocomplete type="email" ng-model="a" name="email"id="email" placeholder="Email ID" onblur="validateemail()"/></p>
+    
+    <div ng-bind="a"id="errortxt"></div>
+
+
+<p><label for="mobile number">mobileNo</label></p>
+<p>  <input class="myclass" required  autofocus autocomplete type="number" ng-model="b" name="mobileNo"id="mobileno" placeholder="Mobile Number" maxlength="10" width="100" /></p>
+  <div ng-bind="b" ></div>
+
+
+    <p><label for="date">DOB</label></p>
+  <p> <input class="myclass" required  autofocus autocomplete type="date" ng-model="c" name="DOB"/></p>
+    <div ng-bind="c" ></div>
+
+  <label for="address">address</label>
+  <input  class="myclass" required  autofocus autocomplete type="text" ng-model="d" name="address"id="address" placeholder="Address"/>
+    <div ng-bind="d"  ></div>
+
+<label for="gender">gender</label>
+
+  <input type="radio" id="rdogender"  name="rdogender"/>male
+   <input type="radio" id="rdogender"  name="rdogender"/>female
+  <input type="radio" id="rdogender" name="rdogender"/>transgender
+
+<p> <label for="password">password</label>
+  <input class="myclass" required  autofocus autocomplete type="password" ng-model="e" name="password"id="password" value="" placeholder="Password"/></p>
+  <div ng-bind="e"></div>
+
+<label for="confirm password">confirm password</label>
+  <input class="myclass" required  autofocus autocomplete type="password" ng-model="f" name="repassword"id="repassword" value="" placeholder="RetypePassword"/>
+  <div ng-bind="f"></div>
+
+        <button type="submit" onclick="check(this.form)">REGISTER</button> 
+    
+    <label>
+      <input type="checkbox" checked="checked" name="remember"> Remember me
+    </label>
+  </div>
+    <script>
+      function check(form)
+          {
+            window.open('file:///E:/vaishali%20html/loginform.html')
+          }
+    </script>
+  </div>
+</form>
+
+</body>
+</center>
+</html>
